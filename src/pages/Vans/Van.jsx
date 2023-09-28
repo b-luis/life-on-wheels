@@ -8,7 +8,6 @@ import {
   useLoaderData,
   defer,
   Await,
-  Suspense,
 } from "react-router-dom";
 import { getVans } from "../../api";
 
@@ -26,33 +25,11 @@ export const loader = () => {
 
 const Van = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  // const [vanData, setVanData] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const typeFilter = searchParams.get("type");
 
   // access the loader (returns an object with a Promise)
   const dataPromise = useLoaderData();
-
-  // useEffect(() => {
-  //   const loadVans = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const data = await getVans();
-  //       setVanData(data);
-  //     } catch (err) {
-  //       setError(err);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   loadVans();
-  // }, []);
-
-  // if (loading) {
-  //   return <Loading />;
-  // }
 
   if (error) {
     return <h1>There was an error: {error.message}</h1>;
@@ -109,7 +86,9 @@ const Van = () => {
   return (
     <section className={styles.vanSection}>
       <h2 className={styles.vanTitle}>Explore our vans options</h2>
-      <Await resolve={dataPromise.vans}>{renderElements}</Await>
+      <Suspense fallback={<Loading />}>
+        <Await resolve={dataPromise.vans}>{renderElements}</Await>
+      </Suspense>
     </section>
   );
 };

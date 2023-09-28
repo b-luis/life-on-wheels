@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useParams, useLocation, Link } from "react-router-dom";
+import Loading from "../../components/Layout/Loading";
 
 const styles = {
   vanDetailContainer: "px-6 py-[45px] flex flex-col ",
@@ -40,6 +41,7 @@ const VanDetail = () => {
       >
         &larr; <span>{`Back to  ${backBtn} vans`}</span>
       </Link>
+
       {van ? (
         <div className={styles.vanDiv}>
           <img className={styles.vanImg} src={van.imageUrl} alt="" />
@@ -55,10 +57,14 @@ const VanDetail = () => {
           <button className={styles.vanButton}>Rent this van</button>
         </div>
       ) : (
-        <h2 className="fetch-data detail">
-          Hold on while we're fetching data... ᓚᘏᗢ{" "}
-        </h2>
+        <Loading />
       )}
+
+      {/* ) : (
+      <h2 className="fetch-data detail">
+        Hold on while we're fetching data... ᓚᘏᗢ{" "}
+      </h2>
+      )} */}
     </div>
   );
 };
