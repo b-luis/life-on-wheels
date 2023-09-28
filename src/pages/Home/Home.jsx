@@ -7,7 +7,7 @@ const styles = {
   mainText: "text-white font-bold leading-10 text-[36px] md:text-6xl",
   mainParagraph: "pt-7 pb-10 md:text-2xl ease-in-out",
   mainBtn:
-    "text-white font-semibold bg-[#FF8C38] text-center rounded-md py-3  md:text-3xl cursor-pointer hover:bg-[#E17654] hover:text-slate-100 transition ease-out duration-300 hover:p-4",
+    "text-white font-semibold bg-[#FF8C38] text-center rounded-md py-3  md:text-3xl cursor-pointer hover:bg-[#E17654] hover:text-slate-100 ",
 };
 
 const Home = () => {
