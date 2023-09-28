@@ -11,3 +11,6 @@ export { default as HostVanDetail } from "./Host/HostVan/HostVanDetail";
 export { default as HostVanPhotos } from "./Host/HostVan/HostVanPhotos";
 export { default as HostVanPricing } from "./Host/HostVan/HostVanPricing";
 export { default as HostVanInfo } from "./Host/HostVan/HostVanInfo";
+export { default as VanError } from "./Error/VanError";
+export { default as Login } from "./Login";
+export { default as SignUp } from "./SignUp";

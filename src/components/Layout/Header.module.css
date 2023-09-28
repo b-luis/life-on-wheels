@@ -1,0 +1,12 @@
+.desktop_menu {
+  display: none;
+}
+
+@media (width >= 640px) {
+  .desktop_menu {
+    display: block;
+  }
+  .burger {
+    display: none;
+  }
+}

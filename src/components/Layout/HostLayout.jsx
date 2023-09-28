@@ -6,7 +6,7 @@ const HostLayout = () => {
     fontWeight: "600",
     textUnderlineOffset: "4px",
     color: "white",
-    background: "orange",
+    background: "#804a1c",
   };
 
   return (

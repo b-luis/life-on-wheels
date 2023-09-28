@@ -33,7 +33,6 @@ const VanDetail = () => {
 
   return (
     <div className={styles.vanDetailContainer}>
-      {/* back to all vans goes here */}
       <Link
         to={`..${location.state?.search}`}
         relative="path"
@@ -56,7 +55,9 @@ const VanDetail = () => {
           <button className={styles.vanButton}>Rent this van</button>
         </div>
       ) : (
-        <h2 className="fetch-data detail">Fetching data...</h2>
+        <h2 className="fetch-data detail">
+          Hold on while we're fetching data... ᓚᘏᗢ{" "}
+        </h2>
       )}
     </div>
   );
