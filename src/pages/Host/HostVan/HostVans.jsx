@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { Suspense } from "react";
+import { useLoaderData, defer, Await } from "react-router-dom";
 import ListedVan from "../../../components/Vans/ListedVan";
 import Loading from "../../../components/Layout/Loading";
+import { getHostVans } from "../../../api";
 
 const styles = {
   hostVanDiv: "px-5 py-8 flex flex-col j",
@@ -8,32 +10,24 @@ const styles = {
   hostVanSection: "",
 };
 
+export const loader = () => {
+  return defer({ vans: getHostVans() });
+};
+
 const HostVans = () => {
-  const [hostVan, setHostVan] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const dataPromise = useLoaderData();
 
-  useEffect(() => {
-    setLoading(true);
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => {
-        setHostVan(data.vans);
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
+  const hostVanElements = (vans) => {
+    const hostVansEls = vans.map((van) => <ListedVan key={van.id} {...van} />);
+    return <section className={styles.hostVanSection}>{hostVansEls}</section>;
+  };
 
   return (
     <div className={styles.hostVanDiv}>
       <h2 className={styles.hostVanTitle}>Your listed vans</h2>
-      <section className={styles.hostVanSection}>
-        {hostVan.map((van) => (
-          <ListedVan key={van.id} {...van} />
-        ))}
-      </section>
+      <Suspense fallback={<Loading />}>
+        <Await resolve={dataPromise.vans}>{hostVanElements}</Await>
+      </Suspense>
     </div>
   );
 };

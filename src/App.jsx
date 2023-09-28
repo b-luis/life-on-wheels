@@ -24,6 +24,7 @@ import {
 } from "react-router-dom";
 import "./miragejs/server";
 import { loader as vansLoader } from "./pages/Vans/Van";
+import { loader as hostVansLoader } from "./pages/Host/HostVan/HostVans";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
           <Route path="reviews" element={<Reviews />} />
-          <Route path="vans" element={<HostVans />} />
+          <Route path="vans" element={<HostVans />} loader={hostVansLoader} />
           <Route path="vans/:id" element={<HostVanDetail />}>
             <Route index element={<HostVanInfo />} />
             <Route path="pricing" element={<HostVanPricing />} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = {
   listedVanDiv: "flex bg-white rounded-md p-5 my-4",
