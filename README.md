@@ -1,4 +1,4 @@
-# VANLIFE
+# Life on Wheels
 ### React concepts applied:
 - useState
 - useEffect
