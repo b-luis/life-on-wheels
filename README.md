@@ -1,5 +1,5 @@
 # VANLIFE
-### React Concepts Covered:
+### React concepts applied:
 - useState
 - useEffect
 - Suspense
@@ -17,9 +17,6 @@
 - Error Handling
 - Protected Routes
 
-### Additional Notes
-Still working on the authentication using Firebase and mobile navigation.
-
 ### Screenshots
 Home
 
@@ -33,6 +30,8 @@ Vans
 
 ![Vans](https://github.com/b-luis/life-on-wheels/assets/139755358/1d2ce6d6-3c31-46ce-9c1b-30104b6b4dfc)
 
+### Additional Notes
+Still working on the authentication using Firebase and mobile navigation.
 
 ### Tools Used
 <div align="left">
